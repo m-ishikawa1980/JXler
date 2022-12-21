@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:model="clr-namespace:JXler.Models"
         mc:Ignorable="d"
-        Title="メイン"        
+        Title="JXler"        
         ResizeMode="NoResize"
         Height="600"
         Width="1000">
@@ -49,12 +49,9 @@
             Background="{x:Null}"
             Margin="0,0,0,0"
             Height="28">
-            <MenuItem Header="全般">
-                <MenuItem
-                    Header="環境設定"
-                    Click="Setting_Click"/>
-            </MenuItem>
-            <MenuItem Header="その他"/>
+            <MenuItem
+                Header="環境設定"
+                Click="Setting_Click"/>
         </Menu>
         <TabControl Margin="0,0,0,0">
             <TabItem IsSelected="True" Header="JsonXls" Name="TabJsonXls">
