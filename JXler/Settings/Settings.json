@@ -1,7 +1,7 @@
 ﻿{
     "OutputXlsLink": true,
     "IndexSheet": "Index",
-    "BasePath": "C:\\Implem\\JsonXlsConverter",
+    "BasePath": "C:\\Work",
     "WriteBlankColumn": true,
     "XlsCellStyles": {
         "Text": "@",

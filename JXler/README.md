@@ -1,4 +1,4 @@
-﻿# JXler.Private
+﻿# JXler
 
 ## 概要
 JsonとExcelを相互に変換します。  
