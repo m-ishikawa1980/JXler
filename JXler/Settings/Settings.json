@@ -1,0 +1,23 @@
+﻿{
+    "OutputXlsLink": true,
+    "IndexSheet": "Index",
+    "BasePath": "C:\\Implem\\JsonXlsConverter",
+    "WriteBlankColumn": true,
+    "XlsCellStyles": {
+        "Text": "@",
+        "NumberInt": "",
+        "NumberFloat": "#.###",
+        "DateTime": "yyyy/mm/dd HH:mm:ss"
+    },
+    "JsonXlsHash": [
+        {
+            "No": 1,
+            "JsonPath": "Json",
+            "JsonName": "Sample.json",
+            "Action": ">>",
+            "XlsPath": "Excel",
+            "XlsName": "Sample.xlsx"
+        }
+    ],
+    "ExecPtn": 2
+}

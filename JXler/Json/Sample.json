@@ -1,0 +1,266 @@
+﻿[
+    {
+        "_id": "639445bc5deaef040a7c8be6",
+        "index": 0,
+        "guid": "dc6eb50b-0d71-4bd3-8f83-3710037e823b",
+        "isActive": true,
+        "balance": "$1,697.69",
+        "picture": "http://placehold.it/32x32",
+        "age": 22,
+        "eyeColor": "brown",
+        "name": "Castro Delgado",
+        "gender": "male",
+        "company": "MIXERS",
+        "email": "castrodelgado@mixers.com",
+        "phone": "+1 (842) 463-2100",
+        "address": "636 Amersfort Place, Ellerslie, Michigan, 3574",
+        "registered": "2021-11-30T07:39:45 -09:00",
+        "latitude": -25.292236,
+        "longitude": 20.195368,
+        "tags": [
+            "incididunt",
+            "do",
+            "consequat",
+            "irure",
+            "in",
+            "minim",
+            "nulla"
+        ],
+        "friends": [
+            {
+                "id": 0,
+                "name": "Benton Barker"
+            },
+            {
+                "id": 1,
+                "name": "Marlene Petersen"
+            },
+            {
+                "id": 2,
+                "name": "Yates Mcneil"
+            }
+        ],
+        "greeting": "Hello, Castro Delgado! You have 6 unread messages.",
+        "favoriteFruit": "strawberry"
+    },
+    {
+        "_id": "639445bc2a668cfe82f54d51",
+        "index": 1,
+        "guid": "9e8e33ba-0a6e-4e7c-9db8-80164b323d99",
+        "isActive": false,
+        "balance": "$1,780.62",
+        "picture": "http://placehold.it/32x32",
+        "age": 35,
+        "eyeColor": "brown",
+        "name": "Jeannine Castro",
+        "gender": "female",
+        "company": "URBANSHEE",
+        "email": "jeanninecastro@urbanshee.com",
+        "phone": "+1 (911) 587-2806",
+        "address": "995 Bayview Place, Kent, Oklahoma, 8466",
+        "registered": "2018-07-19T01:19:44 -09:00",
+        "latitude": 50.587139,
+        "longitude": -2.480798,
+        "tags": [
+            "veniam",
+            "enim",
+            "labore",
+            "proident",
+            "laboris",
+            "veniam",
+            "aliquip"
+        ],
+        "friends": [
+            {
+                "id": 0,
+                "name": "Beth Cannon"
+            },
+            {
+                "id": 1,
+                "name": "Elinor Perry"
+            },
+            {
+                "id": 2,
+                "name": "Beard Walsh"
+            }
+        ],
+        "greeting": "Hello, Jeannine Castro! You have 10 unread messages.",
+        "favoriteFruit": "strawberry"
+    },
+    {
+        "_id": "639445bc38ee6ad20fab504b",
+        "index": 2,
+        "guid": "e9580e77-e116-47e4-9197-1d72b3c11c9a",
+        "isActive": false,
+        "balance": "$1,680.13",
+        "picture": "http://placehold.it/32x32",
+        "age": 34,
+        "eyeColor": "blue",
+        "name": "Concetta Buck",
+        "gender": "female",
+        "company": "FLEETMIX",
+        "email": "concettabuck@fleetmix.com",
+        "phone": "+1 (911) 499-3481",
+        "address": "284 Kingsland Avenue, Layhill, California, 3748",
+        "registered": "2014-12-03T02:48:43 -09:00",
+        "latitude": 81.504462,
+        "longitude": -164.635927,
+        "tags": [
+            "ex",
+            "sint",
+            "fugiat",
+            "sint",
+            "reprehenderit",
+            "commodo",
+            "eiusmod"
+        ],
+        "friends": [
+            {
+                "id": 0,
+                "name": "Lorie Little"
+            },
+            {
+                "id": 1,
+                "name": "Sonya Mcfarland"
+            },
+            {
+                "id": 2,
+                "name": "Lacey Wiley"
+            }
+        ],
+        "greeting": "Hello, Concetta Buck! You have 5 unread messages.",
+        "favoriteFruit": "strawberry"
+    },
+    {
+        "_id": "639445bcef38ff9707136988",
+        "index": 3,
+        "guid": "f27f25d3-50b6-4794-83c2-1f82597d25e9",
+        "isActive": true,
+        "balance": "$3,629.29",
+        "picture": "http://placehold.it/32x32",
+        "age": 31,
+        "eyeColor": "green",
+        "name": "Battle Delaney",
+        "gender": "male",
+        "company": "RUBADUB",
+        "email": "battledelaney@rubadub.com",
+        "phone": "+1 (836) 552-2719",
+        "address": "921 McKibben Street, Delwood, Nevada, 3655",
+        "registered": "2014-08-20T03:25:42 -09:00",
+        "latitude": 72.351775,
+        "longitude": -64.826905,
+        "tags": [
+            "Lorem",
+            "ex",
+            "consectetur",
+            "tempor",
+            "non",
+            "quis",
+            "do"
+        ],
+        "friends": [
+            {
+                "id": 0,
+                "name": "Schultz Berry"
+            },
+            {
+                "id": 1,
+                "name": "Erin Montoya"
+            },
+            {
+                "id": 2,
+                "name": "Benjamin Serrano"
+            }
+        ],
+        "greeting": "Hello, Battle Delaney! You have 2 unread messages.",
+        "favoriteFruit": "banana"
+    },
+    {
+        "_id": "639445bc46f8af025cb317e5",
+        "index": 4,
+        "guid": "b9b54eb1-af10-4ce5-a688-8d1a97bc926e",
+        "isActive": true,
+        "balance": "$3,248.26",
+        "picture": "http://placehold.it/32x32",
+        "age": 25,
+        "eyeColor": "blue",
+        "name": "Dalton Combs",
+        "gender": "male",
+        "company": "ROUGHIES",
+        "email": "daltoncombs@roughies.com",
+        "phone": "+1 (895) 577-3499",
+        "address": "585 Lafayette Walk, Bodega, Alabama, 5065",
+        "registered": "2014-09-22T03:04:52 -09:00",
+        "latitude": 38.874034,
+        "longitude": -94.494842,
+        "tags": [
+            "aliquip",
+            "in",
+            "laboris",
+            "eu",
+            "mollit",
+            "et",
+            "fugiat"
+        ],
+        "friends": [
+            {
+                "id": 0,
+                "name": "Bertha Horn"
+            },
+            {
+                "id": 1,
+                "name": "Oneill Mccullough"
+            },
+            {
+                "id": 2,
+                "name": "Newman Dillon"
+            }
+        ],
+        "greeting": "Hello, Dalton Combs! You have 8 unread messages.",
+        "favoriteFruit": "apple"
+    },
+    {
+        "_id": "639445bc579ed19f21d549b2",
+        "index": 5,
+        "guid": "ecdd052b-0fd6-4d1c-8185-50a2034025d1",
+        "isActive": false,
+        "balance": "$2,694.83",
+        "picture": "http://placehold.it/32x32",
+        "age": 30,
+        "eyeColor": "green",
+        "name": "Lora Cote",
+        "gender": "female",
+        "company": "VELITY",
+        "email": "loracote@velity.com",
+        "phone": "+1 (847) 545-2134",
+        "address": "128 Louisiana Avenue, Muse, Vermont, 6177",
+        "registered": "2015-11-22T07:11:22 -09:00",
+        "latitude": 30.295307,
+        "longitude": -5.771518,
+        "tags": [
+            "laborum",
+            "duis",
+            "occaecat",
+            "eiusmod",
+            "incididunt",
+            "commodo",
+            "magna"
+        ],
+        "friends": [
+            {
+                "id": 0,
+                "name": "Alvarez Atkinson"
+            },
+            {
+                "id": 1,
+                "name": "Yolanda Wooten"
+            },
+            {
+                "id": 2,
+                "name": "Krystal Leach"
+            }
+        ],
+        "greeting": "Hello, Lora Cote! You have 5 unread messages.",
+        "favoriteFruit": "apple"
+    }
+]
