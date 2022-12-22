@@ -1,5 +1,4 @@
-﻿# JXler.Private
-
+﻿# JXler
 ## 概要
 JsonとExcelを相互に変換します。  
 多層構造のJsonも再帰的に処理することで、すべての情報をExcelに変換します。  
