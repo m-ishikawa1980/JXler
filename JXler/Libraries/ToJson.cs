@@ -248,7 +248,7 @@ namespace JXler.Libraries
             var num = sheet.Cell(1, 1).Value.ToString().Split("_");
             var list = sheet.Cell(1, 2).Value.ToString();
             //var a = sheet.Cell(1, 1).Comment.Text;
-            if (sheet.Cell(1, 1).Comment.Text == "Object")
+            if (sheet.Cell(1, 1).GetComment().Text == "Object")
             //if (num[1] == "o")
             {
                 //オブジェクト

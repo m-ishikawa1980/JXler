@@ -21,7 +21,6 @@ namespace JXler
             var setting = Utils.GetSettings();
             dataGridJsonXls.ItemsSource = setting.JsonXlsHash;
             dataGridJsonXls.Items.Refresh();
-
         }
         
         private void dataGridJsonXls_Drop(object sender, DragEventArgs e)

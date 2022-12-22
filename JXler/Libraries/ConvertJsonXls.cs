@@ -68,7 +68,6 @@ namespace JXler.Libraries
                 return;
             }
             var json = File.ReadAllText(inputFileName);
-            //var xlsSettings = new XlsSettings(settings: settings);
             var xlWorkBook = ToXls.Convert(
                 json: json,
                 xlsSettings: new XlsSettings(settings: settings));
@@ -178,17 +177,9 @@ namespace JXler.Libraries
                     logLevel: LogLevel.Error);
                 return;
             }
-            //var jsonString = JsonConvert.SerializeObject(
-            //    jsonObject,
-            //    new JsonSerializerSettings
-            //    {
-            //        NullValueHandling = NullValueHandling.Ignore,
-            //        Formatting = Formatting.Indented
-            //    });
             using (StreamWriter sw = new StreamWriter(outFileName, false))
             {
                 sw.WriteLine(jsonObject.Serialize(Formatting.Indented));
-                //sw.WriteLine(jsonString);
             }
             mainWindow.WriteLogJsonXls(msg: $"Json変換終了");
         }

@@ -84,14 +84,6 @@ namespace JXler
                     return;
                 }
                 value.Path = path;
-                //if (!System.IO.Directory.Exists(Path.Text))
-                //{
-                //    value.Message = "フォルダが存在しません";
-                //}
-                //else
-                //{
-                //    value.Path = Path.Text;
-                //}
             }
             Action = string.IsNullOrEmpty(value.Message) ? ActionType.OK : ActionType.Error;
             Close();
@@ -102,22 +94,6 @@ namespace JXler
             Action = ActionType.Cancel;
             Close();
         }
-
-        //private void SelectFolder_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var dlg = new CommonOpenFileDialog();
-        //    if (!string.IsNullOrEmpty(Path.Text))
-        //    {
-        //        dlg.InitialDirectory = Path.Text;
-        //    }
-        //    dlg.IsFolderPicker = true;
-        //    var res = dlg.ShowDialog();
-        //    if (res == CommonFileDialogResult.Ok)
-        //    {
-        //        SpecifyPath.IsChecked = true;
-        //        Path.Text = dlg.FileName;
-        //    }
-        //}
 
         private string SelectFolder()
         {

@@ -18,7 +18,6 @@ namespace JXler.Libraries
             var xlWorkBook = new XLWorkbook();            
             try
             {
-                //var jo = (JToken)JsonConvert.DeserializeObject(json);
                 var jo = JsonConvert.DeserializeObject<JToken>(json);
                 CheckType(
                     jo: jo,
@@ -51,11 +50,11 @@ namespace JXler.Libraries
             {
                 case JTokenType.Array:
                     //ws.Cell(1, 1).Value = "No_a";
-                    ws.Cell(1, 1).Comment.AddText("Array");
+                    ws.Cell(1, 1).CreateComment().AddText("Array");
                     break;
                 default:
                     //ws.Cell(1, 1).Value = "No_o";
-                    ws.Cell(1, 1).Comment.AddText("Object");
+                    ws.Cell(1, 1).CreateComment().AddText("Object");
                     break;
             }
             return xlWorkBook;
@@ -232,7 +231,7 @@ namespace JXler.Libraries
             if (linkText != null && xlsSettings.OutputXlsLink)
             {
                 ws.Cell(rowNum, colNum).Value = value;
-                ws.Cell(rowNum, colNum).Hyperlink = new XLHyperlink(linkText);
+                ws.Cell(rowNum, colNum).SetHyperlink(new XLHyperlink(linkText));
             }
             else
             {
