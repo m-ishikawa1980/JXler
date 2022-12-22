@@ -198,3 +198,5 @@ JsonはNewtonsoftの[JtokenTypeクラス](https://www.newtonsoft.com/json/help/h
 |Boolean|Boolean||
 
 ## License
+
+[[MIT]](https://github.com/m-ishikawa1980/JXler/blob/master/LICENSE.md)
