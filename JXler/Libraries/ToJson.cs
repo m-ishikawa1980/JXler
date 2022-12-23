@@ -188,7 +188,6 @@ namespace JXler.Libraries
             Dictionary<string, IXLWorksheet> tableHash)
         {
             var cellValue = tableCell.Value.ToString();
-            //object value;
             if (cellValue.StartsWith("{") && cellValue.EndsWith("}") && cellValue.Contains("_No"))
             {
                 return GetChildSheet(
