@@ -57,7 +57,6 @@ namespace JXler
                     break;
                 case ExecPtn.SpecifyPath:
                     SpecifyPath.IsChecked = true;
-                    //Path.Text = settings.Path;
                     break;
                 case ExecPtn.SetIndividually:
                     SetIndividually.IsChecked = true;

@@ -35,25 +35,16 @@ namespace JXler.Libraries
             var settingJsonPath =
                 Path.Combine(ComplementRelativeDir(settingsPath), settingsFile);
             var file = File.ReadAllText(settingJsonPath); // ファイル内容をjson変数に格納
-
             return file.Deserialize<Settings>();
-            //return JsonConvert.DeserializeObject<Settings>(file);
         }
 
         public static void SaveSettings(this Settings settings)
         {
             var settingJsonPath =
                 Path.Combine(ComplementRelativeDir(settingsPath), settingsFile);
-            //var json = JsonConvert.SerializeObject(
-            //    settings,
-            //    new JsonSerializerSettings
-            //    {                    
-            //        Formatting = Formatting.Indented
-            //    });
             using (StreamWriter sw = new StreamWriter(settingJsonPath, false))
             {
                 sw.WriteLine(settings.Serialize(Formatting.Indented));
-                //sw.WriteLine(json);
             }
         }
 
@@ -224,19 +215,6 @@ namespace JXler.Libraries
                         default:
                             return cell.Value.ToString();
                     }
-                    //if (cell.Value.ToString() == "{null}")
-                    //{
-                    //    return null;
-                    //}
-                    //else if (string.IsNullOrEmpty(cell.Value.ToString()))
-                    //{
-                    //    return string.Empty;
-                    //}
-                    //else
-                    //{
-                    //    return cell.Value.ToString();
-                    //}
-
                 case XLDataType.Number:
                     float f;
                     int i;

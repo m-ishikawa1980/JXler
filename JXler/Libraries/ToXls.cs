@@ -49,11 +49,9 @@ namespace JXler.Libraries
             switch (joType)
             {
                 case JTokenType.Array:
-                    //ws.Cell(1, 1).Value = "No_a";
                     ws.Cell(1, 1).CreateComment().AddText("Array");
                     break;
                 default:
-                    //ws.Cell(1, 1).Value = "No_o";
                     ws.Cell(1, 1).CreateComment().AddText("Object");
                     break;
             }
@@ -224,7 +222,6 @@ namespace JXler.Libraries
             int rowNum,
             int colNum)
         {
-            //空の配列の時の設定を見直す必要あり
             var ws = xlWorkBook.Worksheet(sheetName);
             var value = $"{{{childSheet}_No.{xlsSettings.IndexNum}}}";
             var linkText = LinkFomura(value, xlWorkBook);

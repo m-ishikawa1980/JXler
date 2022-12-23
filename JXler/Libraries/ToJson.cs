@@ -241,22 +241,18 @@ namespace JXler.Libraries
 
         private static JsonType EditPtnCheck(IXLWorksheet sheet)
         {
-            //A1セルのNoの形式によりJsonタイプを判断
-            //No_a → Array
-            //No_o → Object
-            //Arrayの場合、2列目のタイトルがListの場合、単純配列、以外の場合はObject配列と判断
-            var num = sheet.Cell(1, 1).Value.ToString().Split("_");
+            //A1セルのメモ内容よりJsonタイプを判断
+            //Array or Object
+            //Arrayの場合、2列目のタイトルがListの場合、値のみの配列、以外の場合はObject配列と判断
             var list = sheet.Cell(1, 2).Value.ToString();
-            //var a = sheet.Cell(1, 1).Comment.Text;
             if (sheet.Cell(1, 1).GetComment().Text == "Object")
-            //if (num[1] == "o")
             {
                 //オブジェクト
                 return JsonType.Object;
             }
             else if (list == "List")
             {
-                //2カラム目タイトルが"List"の場合、単純配列
+                //2カラム目タイトルが"List"の場合、値のみの配列
                 return JsonType.Array;
             }
             else
