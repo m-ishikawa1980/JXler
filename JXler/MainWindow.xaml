@@ -18,31 +18,6 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <!--<Window.Resources>
-        <Style TargetType="{x:Type DataGridRow}">
-            <Style.Triggers>
-                --><!--<Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#bababa" />
-                </Trigger>--><!--
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="#707070" />
-                </Trigger>
-
-
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="{x:Type Button}">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#bababa" />
-                </Trigger>
-            </Style.Triggers>
-            <Style.Setters>
-                <Setter Property="Foreground" Value="White"/>
-                <Setter Property="Background" Value="DimGray"/>
-            </Style.Setters>
-        </Style>
-    </Window.Resources>-->
     <DockPanel>
         <Menu
             DockPanel.Dock="Top"
@@ -54,13 +29,7 @@
                 Click="Setting_Click"/>
         </Menu>
         <TabControl Margin="0,0,0,0">
-            <TabItem IsSelected="True" Header="JsonXls" Name="TabJsonXls">
-                <!--<TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="#FFF0F0F0"/>
-                        <GradientStop Color="#FFF0F0F0" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>-->
+            <TabItem IsSelected="True" Header="Conv" Name="TabJsonXls">
                 <Grid ClipToBounds="True">
                     <StackPanel>
                         <DataGrid                        
@@ -77,11 +46,6 @@
                             Margin="10,10,10,0"
                             VerticalAlignment="Bottom"
                             Height="250">
-                            <!--<DataGrid.RowStyle>
-                                <Style>
-                                    <Setter Property="GridView." Value="Aqua"/>
-                                </Style>
-                            </DataGrid.RowStyle>-->
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="No" Binding="{Binding No}">
                                     <DataGridTextColumn.ElementStyle>
