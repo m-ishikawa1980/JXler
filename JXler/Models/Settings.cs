@@ -10,6 +10,7 @@ namespace JXler.Models
         public string BasePath { get; set; }
         public XlsCellStyles XlsCellStyles { get; set; }
         public List<JsonXls> JsonXlsHash { get; set; }
+        public List<ApiXls> ApiXlsHash { get; set; }
         public ExecPtn ExecPtn { get; set; }
         public string Path { get; set; }
 
@@ -37,4 +38,13 @@ namespace JXler.Models
         public string XlsName { get; set; }
     }
 
+    public class ApiXls
+    {
+        public int No { get; set; }
+        public string ReqPath { get; set; }
+        public string ReqName { get; set; }
+        public string Action { get; set; }
+        public string ResPath { get; set; }
+        public string ResName { get; set; }
+    }
 }

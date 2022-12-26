@@ -80,15 +80,26 @@ namespace JXler.Libraries
             }
         }
 
-        public static List<JsonXls> RenumberingJsonXlsList(this List<JsonXls> jsonToExcelList)
+        public static List<JsonXls> RenumberingJsonXlsList(this List<JsonXls> jsonXlsList)
         {
             int index = 1;
-            foreach(var jsonToExcel in jsonToExcelList)
+            foreach(var jsonXls in jsonXlsList)
             {
-                jsonToExcel.No = index;
+                jsonXls.No = index;
                 index++;
             }
-            return jsonToExcelList;
+            return jsonXlsList;
+        }
+
+        public static List<ApiXls> RenumberingApiXlsList(this List<ApiXls> apiXlslList)
+        {
+            int index = 1;
+            foreach (var apiXls in apiXlslList)
+            {
+                apiXls.No = index;
+                index++;
+            }
+            return apiXlslList;
         }
 
         public static string GetExecAction(ExecAction execAction)

@@ -29,7 +29,7 @@
                 Click="Setting_Click"/>
         </Menu>
         <TabControl Margin="0,0,0,0">
-            <TabItem IsSelected="True" Header="Conv" Name="TabJsonXls">
+            <TabItem IsSelected="True" Header="Conv" Name="TabJsonXls" Width="50">
                 <Grid ClipToBounds="True">
                     <StackPanel>
                         <DataGrid                        
@@ -155,7 +155,7 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem IsSelected="True" Header="Api" Name="TabApiXls">
+            <TabItem IsSelected="True" Header="Api" Name="TabApiXls"  Width="50">
                 <Grid ClipToBounds="True">
                     <StackPanel>
                         <DataGrid                        
@@ -182,7 +182,7 @@
                                         </Style>
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Width="270" Header="JsonPath" Binding="{Binding JsonPath}">
+                                <DataGridTextColumn Width="270" Header="ReqPath" Binding="{Binding ReqPath}">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -190,7 +190,7 @@
                                         </Style>
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Width="160" Header="JsonName" Binding="{Binding JsonName}">
+                                <DataGridTextColumn Width="160" Header="ReqName" Binding="{Binding ReqName}">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -217,7 +217,7 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Width="270" Header="XlsPath" Binding="{Binding XlsPath}">
+                                <DataGridTextColumn Width="270" Header="ResPath" Binding="{Binding ResPath}">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -225,7 +225,7 @@
                                         </Style>
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Width="160" Header="XlsName" Binding="{Binding XlsName}">
+                                <DataGridTextColumn Width="160" Header="ResName" Binding="{Binding ResName}">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -242,8 +242,8 @@
                                     <MenuItem Click="Delete_Click" Name="GridApiXls_Menu_Delete" Header="削除"/>
                                     <Separator />
                                     <MenuItem Name="GridApiXls_Menu_Move" Header="移動">
-                                        <MenuItem Click="MoveJsonPath_Click" Name="GridApiXls_Menu_MoveJsonPath" Header="JsonPath"/>
-                                        <MenuItem Click="MoveXlsPath_Click" Name="GridApiXls_Menu_MoveWbPath" Header="XlsPath"/>
+                                        <MenuItem Click="MoveReqPath_Click" Name="GridApiXls_Menu_MoveJsonPath" Header="ReqPath"/>
+                                        <MenuItem Click="MoveResPath_Click" Name="GridApiXls_Menu_MoveWbPath" Header="ResPath"/>
                                     </MenuItem>
                                     <Separator />
                                     <MenuItem Click="Reload_Click" Name="GridApiXls_Menu_Reload" Header="リロード"/>

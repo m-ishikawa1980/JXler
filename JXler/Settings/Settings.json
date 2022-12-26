@@ -19,5 +19,15 @@
             "XlsName": "Sample.xlsx"
         }
     ],
+    "ApiXlsHash": [
+        {
+            "No": 1,
+            "ReqPath": "Json",
+            "ReqName": "Sample.json",
+            "Action": "<<",
+            "ResPath": "Excel",
+            "ResName": "Sample.xlsx"
+        }
+    ],
     "ExecPtn": 2
 }
