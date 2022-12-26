@@ -116,17 +116,143 @@
                                     <MenuItem Click="Delete_Click" Name="GridJsonXls_Menu_Delete" Header="削除"/>
                                     <Separator />
                                     <MenuItem Name="GridJsonXls_Menu_Move" Header="移動">
-                                        <MenuItem Click="MoveJsonPath_Click" Name="Grid2_Menu_MoveJsonPath" Header="JsonPath"/>
-                                        <MenuItem Click="MoveXlsPath_Click" Name="Grid2_Menu_MoveWbPath" Header="XlsPath"/>
+                                        <MenuItem Click="MoveJsonPath_Click" Name="GridJsonXls_Menu_MoveJsonPath" Header="JsonPath"/>
+                                        <MenuItem Click="MoveXlsPath_Click" Name="GridJsonXls_Menu_MoveWbPath" Header="XlsPath"/>
                                     </MenuItem>
                                     <Separator />
-                                    <MenuItem Click="Reload_Click" Name="Grid2_Menu_Reload" Header="リロード"/>
+                                    <MenuItem Click="Reload_Click" Name="GridJsonXls_Menu_Reload" Header="リロード"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                         </DataGrid>
                         <ListBox
                             Margin="10,10,10,10"
                             x:Name="logMessageJsonXls"
+                            ItemsSource="{Binding LogMessages}"
+                            Height="180" >
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock x:Name="tb" Text="{Binding Message}"/>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding Level}" Value="{x:Static model:LogLevel.Error}">
+                                            <Setter TargetName="tb" Property="Foreground" Value="Red"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Level}" Value="{x:Static model:LogLevel.Warning}">
+                                            <Setter TargetName="tb" Property="Foreground" Value="Orange"/>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button
+                            Content="実行"
+                            Margin="0,0,0,10"
+                            Click="Exec_Click"
+                            HorizontalAlignment="Center"
+                            Width="85"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Height="30" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem IsSelected="True" Header="Api" Name="TabApiXls">
+                <Grid ClipToBounds="True">
+                    <StackPanel>
+                        <DataGrid                        
+                            AllowDrop="True"
+                            Drop="dataGridApiXls_Drop"
+                            ContextMenuOpening="ContextApiXlsOpen"
+                            SelectionMode= "Extended"
+                            Name="dataGridApiXls"
+                            CanUserSortColumns="False"
+                            CanUserDeleteRows="False"
+                            AutoGenerateColumns="False"
+                            IsReadOnly="True"
+                            RowHeight="35"
+                            Margin="10,10,10,0"
+                            VerticalAlignment="Bottom"
+                            Height="250">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="No" Binding="{Binding No}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="TextWrapping" Value="Wrap" />
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="270" Header="JsonPath" Binding="{Binding JsonPath}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="TextWrapping" Value="Wrap" />
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="160" Header="JsonName" Binding="{Binding JsonName}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="TextWrapping" Value="Wrap" />
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Action">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button
+                                                FontSize="14"
+                                                Width="35"
+                                                FontWeight="Bold"
+                                                Height="30"
+                                                Tag="{Binding No}"
+                                                Content="{Binding Action}"
+                                                Foreground="White"
+                                                Background="DimGray"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Click="GridApiXls_Button_Click">
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Width="270" Header="XlsPath" Binding="{Binding XlsPath}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="TextWrapping" Value="Wrap" />
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="160" Header="XlsName" Binding="{Binding XlsName}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="TextWrapping" Value="Wrap" />
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Click="Add_Click" Name="GridApiXls_Menu_Add" Header="追加"/>
+                                    <MenuItem Click="Update_Click" Name="GridApiXls_Menu_Update" Header="更新"/>
+                                    <MenuItem Click="Copy_Click" Name="GridApiXls_Menu_Copy" Header="コピー"/>
+                                    <MenuItem Click="Delete_Click" Name="GridApiXls_Menu_Delete" Header="削除"/>
+                                    <Separator />
+                                    <MenuItem Name="GridApiXls_Menu_Move" Header="移動">
+                                        <MenuItem Click="MoveJsonPath_Click" Name="GridApiXls_Menu_MoveJsonPath" Header="JsonPath"/>
+                                        <MenuItem Click="MoveXlsPath_Click" Name="GridApiXls_Menu_MoveWbPath" Header="XlsPath"/>
+                                    </MenuItem>
+                                    <Separator />
+                                    <MenuItem Click="Reload_Click" Name="GridApiXls_Menu_Reload" Header="リロード"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                        </DataGrid>
+                        <ListBox
+                            Margin="10,10,10,10"
+                            x:Name="logMessageApiXls"
                             ItemsSource="{Binding LogMessages}"
                             Height="180" >
                             <ListBox.ItemTemplate>
