@@ -10,7 +10,7 @@ namespace JXler.Libraries
     public static class ToJson
     {
 
-        public static object Convert(XLWorkbook xlWorkBook, XlsSettings xlsSettings)
+        public static object Convert(XLWorkbook xlWorkBook, XlsSettings xlsSettings, string sheet = null)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace JXler.Libraries
                     tableHash.Add(workSheet.Name, workSheet);
                 }
                 //インデックスシートを取得
-                var wsIndex = xlWorkBook.Worksheet(xlsSettings.IndexSheet);
+                var wsIndex = xlWorkBook.Worksheet(name: string.IsNullOrEmpty(sheet) ? xlsSettings.IndexSheet : sheet);
                 var jo = EditJson(
                     sheet: wsIndex,
                     tableHash: tableHash,

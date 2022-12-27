@@ -36,27 +36,27 @@ namespace JXler
                 foreach (var fileName in fileNames)
                 {
                     var extension = Path.GetExtension(fileName);
-                    var jsonToXls = new JsonXls();
+                    var jsonXls = new JsonXls();
                     switch (extension)
                     {
                         case ".xlsx":
                         case ".xlsm":
-                            jsonToXls.XlsPath = Path.GetDirectoryName(fileName);
-                            jsonToXls.XlsName = Path.GetFileName(fileName);
-                            jsonToXls.No = settings.JsonXlsHash.Count > 0 ?
+                            jsonXls.XlsPath = Path.GetDirectoryName(fileName);
+                            jsonXls.XlsName = Path.GetFileName(fileName);
+                            jsonXls.No = settings.JsonXlsHash.Count > 0 ?
                                             settings.JsonXlsHash.Select(o => o.No).Max() + 1 :
                                             1;
-                            jsonToXls.Action = Utils.GetExecAction(execAction: Utils.ExecAction.Rl);
-                            settings.JsonXlsHash.Add(jsonToXls);
+                            jsonXls.Action = Utils.GetExecAction(execAction: Utils.ExecAction.Rl);
+                            settings.JsonXlsHash.Add(jsonXls);
                             break;
                         case ".json":
-                            jsonToXls.JsonPath = Path.GetDirectoryName(fileName);
-                            jsonToXls.JsonName = Path.GetFileName(fileName);
-                            jsonToXls.No = settings.JsonXlsHash.Count > 0 ?
+                            jsonXls.JsonPath = Path.GetDirectoryName(fileName);
+                            jsonXls.JsonName = Path.GetFileName(fileName);
+                            jsonXls.No = settings.JsonXlsHash.Count > 0 ?
                                             settings.JsonXlsHash.Select(o => o.No).Max() + 1 :
                                             1;
-                            jsonToXls.Action = Utils.GetExecAction(execAction: Utils.ExecAction.Lr);
-                            settings.JsonXlsHash.Add(jsonToXls);
+                            jsonXls.Action = Utils.GetExecAction(execAction: Utils.ExecAction.Lr);
+                            settings.JsonXlsHash.Add(jsonXls);
                             break;
                         default:
                             WriteLogJsonXls(
@@ -81,27 +81,18 @@ namespace JXler
                 foreach (var fileName in fileNames)
                 {
                     var extension = Path.GetExtension(fileName);
-                    var jsonToXls = new JsonXls();
+                    var apiXls = new ApiXls();
                     switch (extension)
                     {
                         case ".xlsx":
                         case ".xlsm":
-                            jsonToXls.XlsPath = Path.GetDirectoryName(fileName);
-                            jsonToXls.XlsName = Path.GetFileName(fileName);
-                            jsonToXls.No = settings.JsonXlsHash.Count > 0 ?
-                                            settings.JsonXlsHash.Select(o => o.No).Max() + 1 :
+                            apiXls.ReqPath = Path.GetDirectoryName(fileName);
+                            apiXls.ReqName = Path.GetFileName(fileName);
+                            apiXls.No = settings.ApiXlsHash.Count > 0 ?
+                                            settings.ApiXlsHash.Select(o => o.No).Max() + 1 :
                                             1;
-                            jsonToXls.Action = Utils.GetExecAction(execAction: Utils.ExecAction.Rl);
-                            settings.JsonXlsHash.Add(jsonToXls);
-                            break;
-                        case ".json":
-                            jsonToXls.JsonPath = Path.GetDirectoryName(fileName);
-                            jsonToXls.JsonName = Path.GetFileName(fileName);
-                            jsonToXls.No = settings.JsonXlsHash.Count > 0 ?
-                                            settings.JsonXlsHash.Select(o => o.No).Max() + 1 :
-                                            1;
-                            jsonToXls.Action = Utils.GetExecAction(execAction: Utils.ExecAction.Lr);
-                            settings.JsonXlsHash.Add(jsonToXls);
+                            apiXls.Action = Utils.GetExecAction(execAction: Utils.ExecAction.Rl);
+                            settings.ApiXlsHash.Add(apiXls);
                             break;
                         default:
                             WriteLogJsonXls(
@@ -111,8 +102,8 @@ namespace JXler
                     };
                 }
                 settings.SaveSettings();
-                dataGridJsonXls.ItemsSource = settings.JsonXlsHash;
-                dataGridJsonXls.Items.Refresh();
+                dataGridApiXls.ItemsSource = settings.ApiXlsHash;
+                dataGridApiXls.Items.Refresh();
             }
         }
 
@@ -468,6 +459,26 @@ namespace JXler
                             logLevel: LogLevel.Error);
                         break;
                 }
+            }
+            else
+            {
+                RestApiXls.Rest(this);
+                //switch (win.Action)
+                //{
+                //    case ConfirmWindow.ActionType.OK:
+                //        var settings = Utils.GetSettings();
+                //        settings.ExecPtn = win.value.execPtn;
+                //        settings.Path = win.value.Path;
+                //        settings.SaveSettings();
+                //        ConvertJsonXls.Convert(this);
+                //        break;
+                //    case ConfirmWindow.ActionType.Error:
+                //        WriteLogApiXls(
+                //            msg: win.value.Message,
+                //            logLevel: LogLevel.Error);
+                //        break;
+                //}
+
             }
         }
     }

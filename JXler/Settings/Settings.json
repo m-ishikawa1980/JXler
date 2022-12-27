@@ -22,11 +22,11 @@
     "ApiXlsHash": [
         {
             "No": 1,
-            "ReqPath": "Json",
-            "ReqName": "Sample.json",
-            "Action": "<<",
+            "ReqPath": "Excel",
+            "ReqName": "Request.xlsx",
+            "Action": ">>",
             "ResPath": "Excel",
-            "ResName": "Sample.xlsx"
+            "ResName": "Response.xlsx"
         }
     ],
     "ExecPtn": 2

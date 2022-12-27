@@ -13,7 +13,8 @@ namespace JXler.Libraries
     {
         public static XLWorkbook Convert(
             string json,
-            XlsSettings xlsSettings)
+            XlsSettings xlsSettings,
+            string sheet = null)
         {
             var xlWorkBook = new XLWorkbook();            
             try
@@ -22,7 +23,7 @@ namespace JXler.Libraries
                 CheckType(
                     jo: jo,
                     xlWorkBook: xlWorkBook,
-                    sheetName: xlsSettings.IndexSheet,
+                    sheetName:string.IsNullOrEmpty(sheet) ? xlsSettings.IndexSheet : sheet,
                     xlsSettings: xlsSettings);
                 return xlWorkBook;
             }

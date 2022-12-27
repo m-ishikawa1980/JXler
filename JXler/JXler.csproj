@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Excel\Request.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Excel\Sample.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
