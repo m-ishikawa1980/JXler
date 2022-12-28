@@ -44,20 +44,20 @@ namespace JXler.Libraries
                     FileAccess.Read,
                     FileShare.ReadWrite);
 
-
-
+                var xlsWorkBook = new XLWorkbook(fs, XLEventTracking.Disabled);
+                var xlsSettings = new XlsSettings(settings: settings);
 
                 var reqParams = ToJson.Convert(
-                    xlWorkBook: new XLWorkbook(fs, XLEventTracking.Disabled),
-                    xlsSettings: new XlsSettings(settings: settings),
+                    xlWorkBook: xlsWorkBook,
+                    xlsSettings: xlsSettings,
                     sheet: "param").Serialize().Deserialize<JObject>();
                 var reqHeaders = ToJson.Convert(
-                    xlWorkBook: new XLWorkbook(fs, XLEventTracking.Disabled),
-                    xlsSettings: new XlsSettings(settings: settings),
+                    xlWorkBook: xlsWorkBook,
+                    xlsSettings: xlsSettings,
                     sheet: "headers").Serialize().Deserialize<JObject> ();
                 var reqBody = ToJson.Convert(
-                    xlWorkBook: new XLWorkbook(fs, XLEventTracking.Disabled),
-                    xlsSettings: new XlsSettings(settings: settings),
+                    xlWorkBook: xlsWorkBook,
+                    xlsSettings: xlsSettings,
                     sheet: "body").Serialize();
                 var url = reqParams.Value<string>("url");
                 var contentType = reqHeaders.Value<string>("content-type");
