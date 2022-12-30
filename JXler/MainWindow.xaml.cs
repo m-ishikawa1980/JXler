@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -436,7 +437,7 @@ namespace JXler
             }
         }
 
-        private void Exec_Click(object sender, RoutedEventArgs e)
+        private async void Exec_Click(object sender, RoutedEventArgs e)
         {
             var win = new ConfirmWindow(this);
             win.Owner = GetWindow(this);
@@ -462,7 +463,7 @@ namespace JXler
             }
             else
             {
-                RestApiXls.Rest(this);
+                await RestApiXls.Rest(this);
                 //switch (win.Action)
                 //{
                 //    case ConfirmWindow.ActionType.OK:

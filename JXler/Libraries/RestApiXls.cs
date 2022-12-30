@@ -1,8 +1,11 @@
 ﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office2016.Excel;
+using DocumentFormat.OpenXml.Wordprocessing;
 using JXler.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -38,38 +41,20 @@ namespace JXler.Libraries
                 }
                 //https://qiita.com/c-yan/items/6e506399675e3cc56732
                 //https://teratail.com/questions/219712
-                FileStream fs = new FileStream(
-                    inputFileName,
-                    FileMode.Open,
-                    FileAccess.Read,
-                    FileShare.ReadWrite);
-
-                var xlsWorkBook = new XLWorkbook(fs, XLEventTracking.Disabled);
-                var xlsSettings = new XlsSettings(settings: settings);
-
-                var reqParams = ToJson.Convert(
-                    xlWorkBook: xlsWorkBook,
-                    xlsSettings: xlsSettings,
-                    sheet: "param").Serialize().Deserialize<JObject>();
-                var reqHeaders = ToJson.Convert(
-                    xlWorkBook: xlsWorkBook,
-                    xlsSettings: xlsSettings,
-                    sheet: "headers").Serialize().Deserialize<JObject> ();
-                var reqBody = ToJson.Convert(
-                    xlWorkBook: xlsWorkBook,
-                    xlsSettings: xlsSettings,
-                    sheet: "body").Serialize();
-                var url = reqParams.Value<string>("url");
-                var contentType = reqHeaders.Value<string>("content-type");
-                var content = new StringContent(reqBody, Encoding.UTF8);
-                var request = new HttpRequestMessage(HttpMethod.Post, url);
-                request.Headers.Add("ContentType", contentType);
-                request.Content = content;
-                var Http = new HttpClient();
-                var response = await Http.SendAsync(request);
-                var responseContent = await response.Content.ReadAsStringAsync();
 
 
+
+
+
+
+                //var Http = new HttpClient();
+                //var response = await Http.SendAsync(SetRequest(inputFileName:inputFileName));
+                //var responseContent = await response.Content.ReadAsStringAsync();
+
+                var responseString =
+                    await HttpClient(
+                        SetRequest(
+                            inputFileName: inputFileName));
 
                 var outFileName =
                     Utils.ComplementRelativePath(
@@ -85,24 +70,10 @@ namespace JXler.Libraries
                     return;
                 }
                 var xlWorkBook = ToXls.Convert(
-                    json: responseContent,
+                    json: responseString,
                     xlsSettings: new XlsSettings(settings: settings));
                 xlWorkBook.SaveAs(outFileName);
-                //switch (Utils.CheckExecAction(execAction: jsonXls.Action))
-                //{
-                //    case Utils.ExecAction.Lr:
-                //        ConvJsonToXls(
-                //            mainWindow: mainWindow,
-                //            jsonXls: jsonXls,
-                //            settings: settings);
-                //        break;
-                //    case Utils.ExecAction.Rl:
-                //        ConvXlsToJson(
-                //            mainWindow: mainWindow,
-                //            jsonToXls: jsonXls,
-                //            settings: settings);
-                //        break;
-                //}
+
             }
             settings.SaveSettings();
             settings = Utils.GetSettings();
@@ -110,6 +81,80 @@ namespace JXler.Libraries
             mainWindow.dataGridApiXls.Items.Refresh();
             mainWindow.WriteLogJsonXls(msg: "RestApi 終了");
 
+        }
+
+        private static HttpRequestMessage SetRequest(string inputFileName)
+        {
+            var settings = Utils.GetSettings();
+            FileStream fs = new FileStream(
+                inputFileName,
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.ReadWrite);
+
+            var xlsWorkBook = new XLWorkbook(fs, XLEventTracking.Disabled);
+            var xlsSettings = new XlsSettings(settings: settings);
+
+            var reqParams = ToJson.Convert(
+                xlWorkBook: xlsWorkBook,
+                xlsSettings: xlsSettings,
+                sheet: "param")
+                    .Serialize()
+                        .Deserialize<JObject>();
+            var reqHeaders = ToJson.Convert(
+                xlWorkBook: xlsWorkBook,
+                xlsSettings: xlsSettings,
+                sheet: "headers")
+                    .Serialize()
+                        .Deserialize<JToken>();
+            var reqBody = ToJson.Convert(
+                xlWorkBook: xlsWorkBook,
+                xlsSettings: xlsSettings,
+                sheet: "body")
+                    .Serialize();
+
+            var url = string.Empty;
+
+            if (reqParams.ContainsKey("url"))
+            {
+                url = reqParams.Value<string>("url");
+            }
+            HttpMethod method;// = HttpMethod.Post;
+            if (reqParams.ContainsKey("method"))
+            {
+                switch (reqParams.Value<string>("method"))
+                {
+                    case "post":
+                        method = HttpMethod.Post;
+                        break;
+                    case "get":
+                        method = HttpMethod.Get;
+                        break;
+                    default:
+                        method = HttpMethod.Get;
+                        break;
+                }
+            }
+            else
+            {
+                method = HttpMethod.Get;
+            }
+            var request = new HttpRequestMessage(method, url);
+            var jsonDic = reqHeaders.ToObject<Dictionary<string, string>>();
+            foreach (var data in jsonDic)
+            {
+                request.Headers.Add(data.Key, data.Value);
+            }
+            request.Content = new StringContent(reqBody, Encoding.UTF8);
+
+            return request;
+        }
+
+        private static async Task<string> HttpClient(HttpRequestMessage requestMessage)
+        {
+            var Http = new HttpClient();
+            var response = await Http.SendAsync(requestMessage);
+            return await response.Content.ReadAsStringAsync();            
         }
     }
 }
